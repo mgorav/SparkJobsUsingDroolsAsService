@@ -56,11 +56,11 @@ public class AppConfigurer extends WebSecurityConfigurerAdapter {
     }
 
     private ApiInfo apiInfo() {
-        String description = "APIs to demonstrate Drools for creating data cleansing rules";
+        String description = "API which triggers a Spark JOB and uses Drools Rule Engine";
         return new ApiInfoBuilder()
                 .title(description)
                 .description(description)
-                .license("Nike")
+                .license("Gonnect")
                 .licenseUrl("")
                 .version("1.0")
                 .build();
