@@ -19,7 +19,9 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.Arrays;
 
+import static java.util.Arrays.asList;
 import static springfox.documentation.builders.PathSelectors.regex;
+import static springfox.documentation.builders.RequestHandlerSelectors.basePackage;
 
 @Configuration
 @EnableWebSecurity
@@ -35,9 +37,9 @@ public class AppConfigurer extends WebSecurityConfigurerAdapter {
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("*"));
-        configuration.setAllowedMethods(Arrays.asList("*"));
-        configuration.setAllowedHeaders(Arrays.asList("*"));
+        configuration.setAllowedOrigins(asList("*"));
+        configuration.setAllowedMethods(asList("*"));
+        configuration.setAllowedHeaders(asList("*"));
         configuration.setAllowCredentials(true);
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
@@ -49,7 +51,7 @@ public class AppConfigurer extends WebSecurityConfigurerAdapter {
 
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage(PersonApprovalApis.class.getPackage().getName()))
+                .apis(basePackage(PersonApprovalApis.class.getPackage().getName()))
                 .paths(Predicates.not(regex("/error")))
                 .build()
                 .pathMapping("/")
