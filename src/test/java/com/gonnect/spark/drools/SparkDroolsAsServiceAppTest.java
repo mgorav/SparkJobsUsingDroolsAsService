@@ -4,9 +4,6 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
-/**
- * To do - Write a powerful test case using Mocks.
- */
 public class SparkDroolsAsServiceAppTest
     extends TestCase
 {
