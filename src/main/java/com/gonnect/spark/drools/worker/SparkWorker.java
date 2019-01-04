@@ -15,6 +15,9 @@ import java.util.List;
 
 import static java.util.Arrays.asList;
 
+/**
+ * A Spark worker class. This class creates Spark job and also Drools artifacts
+ */
 public class SparkWorker {
 
     public static void doExecuteSparkWithDrools() {
