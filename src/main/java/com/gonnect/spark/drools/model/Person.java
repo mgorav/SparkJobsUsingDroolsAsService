@@ -1,4 +1,4 @@
-package com.gonnect.spark.drools;
+package com.gonnect.spark.drools.model;
 
 
 public class Person implements java.io.Serializable {

@@ -1,5 +1,6 @@
-package com.gonnect.spark.drools;
+package com.gonnect.spark.drools.apis;
 
+import com.gonnect.spark.drools.SparkDroolsAsServiceApp;
 import io.swagger.annotations.Api;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;

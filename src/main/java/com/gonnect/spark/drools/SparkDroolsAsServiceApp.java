@@ -12,6 +12,7 @@ import java.util.Arrays;
 
 import java.util.List;
 
+import com.gonnect.spark.drools.model.Person;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
