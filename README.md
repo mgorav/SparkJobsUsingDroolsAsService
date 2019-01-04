@@ -11,3 +11,7 @@ mvn clean install
 **_Run_**
 
 java -jar target/spark-drools.jar
+
+_**Swagger API**_
+
+http://localhost:8080/swagger-ui.html
