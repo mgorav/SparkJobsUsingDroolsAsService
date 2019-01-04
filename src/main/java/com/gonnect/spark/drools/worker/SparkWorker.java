@@ -29,7 +29,12 @@ public class SparkWorker {
                 new Person(7, "firstName7", "lastName7", 12000, 457),
                 new Person(8, "firstName8", "lastName8", 10000, 300),
                 new Person(9, "firstName9", "lastName9", 20000, 721),
-                new Person(10, "firstName10", "lastName10", 25000, 590)
+                new Person(10, "firstName10", "lastName10", 30000, 890),
+                new Person(11, "firstName10", "lastName11", 50000, 490),
+                new Person(12, "firstName10", "lastName12", 60000, 690),
+                new Person(13, "firstName10", "lastName13", 25000, 390),
+                new Person(14, "firstName10", "lastName14", 80000, 290)
+
         );
         //Use Max cores
         SparkConf conf = new SparkConf().setAppName("Spring Boot + Spark Job + Drools Application").setMaster("local[*]");
