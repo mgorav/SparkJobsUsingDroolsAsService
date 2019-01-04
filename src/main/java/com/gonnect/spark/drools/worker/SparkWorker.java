@@ -16,6 +16,7 @@ import java.util.List;
 import static java.util.Arrays.asList;
 
 public class SparkWorker {
+
     public static void doExecuteSparkWithDrools() {
 
         //Setup data
@@ -46,7 +47,7 @@ public class SparkWorker {
     /**
      * Load the Rules (PersonApprovalRule.drl) in the container
      */
-    private  KieBase loadRules() {
+    private  static KieBase loadRules() {
         KieServices kieServices = KieServices.Factory.get();
         KieContainer kieContainer = kieServices.getKieClasspathContainer();
         return kieContainer.getKieBase();
