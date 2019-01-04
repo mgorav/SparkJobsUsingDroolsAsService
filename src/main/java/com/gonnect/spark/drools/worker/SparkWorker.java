@@ -59,10 +59,10 @@ public class SparkWorker {
     /**
      * Fire/apply the rules if the credit score > 600
      */
-    private static Person doExecuteRules(KieBase base, Person a) {
-        StatelessKieSession session = base.newStatelessKieSession();
-        session.execute(a);
-        return a;
+    private static Person doExecuteRules(KieBase kieBase, Person aPerson) {
+        StatelessKieSession session = kieBase.newStatelessKieSession();
+        session.execute(aPerson);
+        return aPerson;
     }
 
     private static List<Person> getInputData() {
