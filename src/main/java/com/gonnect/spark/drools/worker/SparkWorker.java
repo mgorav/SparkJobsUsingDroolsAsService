@@ -19,7 +19,7 @@ public class SparkWorker {
     public static void doExecuteSparkWithDrools() {
 
         //Setup data
-        List<Person> inputData = asList(
+        List<Person> anInputData = asList(
                 new Person(1, "firstName1", "lastName1", 10000, 568),
                 new Person(2, "firstName2", "lastName2", 12000, 654),
                 new Person(3, "firstName3", "lastName3", 100, 568),
@@ -37,16 +37,16 @@ public class SparkWorker {
 
         );
         //Use all cores
-        SparkConf conf = new SparkConf().setAppName("Spring Boot + Spark Job + Drools Application").setMaster("local[*]");
-        JavaSparkContext sparkContext = new JavaSparkContext(conf);
+        SparkConf sparkConf = new SparkConf().setAppName("Spring Boot + Spark Job + Drools Application").setMaster("local[*]");
+        JavaSparkContext sparkContext = new JavaSparkContext(sparkConf);
 
 
-        Broadcast<KieBase> broadcastRules = sparkContext.broadcast(loadRules());
+        Broadcast<KieBase> broadcastedRules = sparkContext.broadcast(loadRules());
 
         //Spark work starts here
-        JavaRDD<Person> persons = sparkContext.parallelize(inputData);
+        JavaRDD<Person> persons = sparkContext.parallelize(anInputData);
 
-        long numberOfPersonsApproved = persons.map(aPerson -> doExecuteRules(broadcastRules.value(), aPerson))
+        long numberOfPersonsApproved = persons.map(aPerson -> doExecuteRules(broadcastedRules.value(), aPerson))
                 .filter(aPerson -> aPerson.isApproved()) // apply drools rules
                 .count();  //First Action Performed on Spark - lazy loading
 
