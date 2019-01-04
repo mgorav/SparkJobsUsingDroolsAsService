@@ -13,11 +13,13 @@ import org.kie.api.runtime.StatelessKieSession;
 import java.util.Arrays;
 import java.util.List;
 
+import static java.util.Arrays.asList;
+
 public class SparkWorker {
     public static void doExecuteSparkWithDrools() {
 
         //Setup data
-        List<Person> inputData = Arrays.asList(
+        List<Person> inputData = asList(
                 new Person(1, "firstNam21", "lastName1", 10000, 568),
                 new Person(2, "firstName2", "lastName2", 12000, 654),
                 new Person(3, "firstName3", "lastName3", 100, 568),
