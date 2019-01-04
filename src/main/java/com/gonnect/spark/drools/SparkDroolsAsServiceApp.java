@@ -48,22 +48,21 @@ public class SparkDroolsAsServiceApp {
         );
         //Use Max cores
         SparkConf conf = new SparkConf().setAppName("Spring Boot + Spark Job + Drools Application").setMaster("local[*]");
-        JavaSparkContext sc = new JavaSparkContext(conf);
+        JavaSparkContext sparkContext = new JavaSparkContext(conf);
 
 
-        KieBase rules = loadRules();
-        Broadcast<KieBase> broadcastRules = sc.broadcast(rules);
+        Broadcast<KieBase> broadcastRules = sparkContext.broadcast(loadRules());
 
         //Spark work starts here
-        JavaRDD<Person> applicants = sc.parallelize(inputData);
+        JavaRDD<Person> persons = sparkContext.parallelize(inputData);
 
-        long numApproved = applicants.map(a -> applyRules(broadcastRules.value(), a))
-                .filter(a -> a.isApproved()) // apply drools rules
+        long numApproved = persons.map(aPerson -> doExecuteRules(broadcastRules.value(), aPerson))
+                .filter(aPerson -> aPerson.isApproved()) // apply drools rules
                 .count();  //First Action Performed on Spark - lazy loading
 
         System.out.println("Number of persons approved: " + numApproved);
-        applicants.saveAsTextFile("com.gonnect.spark.drools.output"); // 2nd Action is Performed on this Job to Save the File.
-        sc.close();
+        persons.saveAsTextFile("com.gonnect.spark.drools.output"); // 2nd Action is Performed on this Job to Save the File.
+        sparkContext.close();
     }
 
     /**
@@ -79,7 +78,7 @@ public class SparkDroolsAsServiceApp {
     /**
      * Fire/apply the rules if the credit score > 600
      */
-    public static Person applyRules(KieBase base, Person a) {
+    public static Person doExecuteRules(KieBase base, Person a) {
         StatelessKieSession session = base.newStatelessKieSession();
         session.execute(a);
         return a;
