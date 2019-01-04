@@ -15,3 +15,7 @@ java -jar target/spark-drools.jar
 _**Swagger API**_
 
 http://localhost:8080/swagger-ui.html
+
+_**Self Learning System**_
+
+![alt text](./SelfDeepLearning.png)
