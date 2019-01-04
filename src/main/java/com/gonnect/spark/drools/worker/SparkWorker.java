@@ -37,7 +37,9 @@ public class SparkWorker {
 
         );
         //Use all cores
-        SparkConf sparkConf = new SparkConf().setAppName("Spring Boot + Spark Job + Drools Application").setMaster("local[*]");
+        SparkConf sparkConf = new SparkConf()
+                                .setAppName("Spring Boot + Spark Job + Drools Application")
+                                .setMaster("local[*]");
         JavaSparkContext sparkContext = new JavaSparkContext(sparkConf);
 
 
