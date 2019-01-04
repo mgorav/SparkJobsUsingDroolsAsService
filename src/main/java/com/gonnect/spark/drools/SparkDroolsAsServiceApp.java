@@ -47,7 +47,7 @@ public class SparkDroolsAsServiceApp {
                 new Person(10, "firstName10", "lastName10", 25000, 590)
         );
         //Use Max cores
-        SparkConf conf = new SparkConf().setAppName("Simple Application").setMaster("local[*]");
+        SparkConf conf = new SparkConf().setAppName("Spring Boot + Spark Job + Drools Application").setMaster("local[*]");
         JavaSparkContext sc = new JavaSparkContext(conf);
 
 
