@@ -1,0 +1,10 @@
+package com.gonnect.spark.drools.rules;
+
+import Person
+
+rule "Approve Good Credit"
+  when 
+    a: Person(creditScore > 600)
+  then
+    a.setApproved(true);
+end 
