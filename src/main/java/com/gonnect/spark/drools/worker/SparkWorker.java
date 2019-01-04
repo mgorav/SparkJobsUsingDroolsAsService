@@ -36,7 +36,7 @@ public class SparkWorker {
                 new Person(14, "firstName10", "lastName14", 80000, 290)
 
         );
-        //Use Max cores
+        //Use all cores
         SparkConf conf = new SparkConf().setAppName("Spring Boot + Spark Job + Drools Application").setMaster("local[*]");
         JavaSparkContext sparkContext = new JavaSparkContext(conf);
 
