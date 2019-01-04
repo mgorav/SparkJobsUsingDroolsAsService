@@ -41,11 +41,11 @@ public class SparkWorker {
         //Spark work starts here
         JavaRDD<Person> persons = sparkContext.parallelize(inputData);
 
-        long numApproved = persons.map(aPerson -> doExecuteRules(broadcastRules.value(), aPerson))
+        long numberOfPersonsApproved = persons.map(aPerson -> doExecuteRules(broadcastRules.value(), aPerson))
                 .filter(aPerson -> aPerson.isApproved()) // apply drools rules
                 .count();  //First Action Performed on Spark - lazy loading
 
-        System.out.println("Number of persons approved: " + numApproved);
+        System.out.println("Number of persons approved: " + numberOfPersonsApproved);
         persons.saveAsTextFile("com.gonnect.spark.drools.output"); // 2nd Action is Performed on this Job to Save the File.
         sparkContext.close();
     }
