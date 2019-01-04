@@ -20,7 +20,7 @@ public class SparkWorker {
 
         //Setup data
         List<Person> inputData = asList(
-                new Person(1, "firstNam21", "lastName1", 10000, 568),
+                new Person(1, "firstName1", "lastName1", 10000, 568),
                 new Person(2, "firstName2", "lastName2", 12000, 654),
                 new Person(3, "firstName3", "lastName3", 100, 568),
                 new Person(4, "firstName4", "lastName4", 1000000, 788),
@@ -30,10 +30,10 @@ public class SparkWorker {
                 new Person(8, "firstName8", "lastName8", 10000, 300),
                 new Person(9, "firstName9", "lastName9", 20000, 721),
                 new Person(10, "firstName10", "lastName10", 30000, 890),
-                new Person(11, "firstName10", "lastName11", 50000, 490),
-                new Person(12, "firstName10", "lastName12", 60000, 690),
-                new Person(13, "firstName10", "lastName13", 25000, 390),
-                new Person(14, "firstName10", "lastName14", 80000, 290)
+                new Person(11, "firstName11", "lastName11", 50000, 490),
+                new Person(12, "firstName12", "lastName12", 60000, 690),
+                new Person(13, "firstName13", "lastName13", 25000, 390),
+                new Person(14, "firstName14", "lastName14", 80000, 290)
 
         );
         //Use all cores
