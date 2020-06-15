@@ -4,7 +4,6 @@
 package com.gonnect.spark.drools;
 
 /**
- * @author prakrish
  *
  */
 
